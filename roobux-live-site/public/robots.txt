@@ -1,0 +1,36 @@
+ROOBUX - robots.txt (God Mode V2)
+
+Allow search engines to crawl public pages only
+
+User-agent: *
+
+Allow public pages
+
+Allow: /
+Allow: /index.html
+Allow: /about.html
+Allow: /how-it-works.html
+Allow: /packages.html
+Allow: /contact.html
+Allow: /terms.html
+
+Block all private user dashboard, admin, and special pages
+
+Disallow: /admin.html
+Disallow: /dashboard.html
+Disallow: /deposit.html
+Disallow: /withdraw.html
+Disallow: /profile.html
+Disallow: /referrals.html
+Disallow: /support.html
+Disallow: /blocked.html
+Disallow: /maintenance.html
+
+Allow CSS and JS for rendering
+
+Allow: /css/
+Allow: /js/
+
+Sitemap location
+
+S

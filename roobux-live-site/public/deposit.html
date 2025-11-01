@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Deposit - ROOBUX</title>
+    <meta name="robots" content="noindex, nofollow"> <!-- Prevents indexing -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%233B82F6'/%3E%3Cpath d='M18 16h8c4 0 7 2 7 6s-2 5-4 5.5c3 .5 5 2.5 5 5.5s-3 7-8 7h-8V16zm4 4v6h4c2 0 3-1 3-3s-1-3-3-3h-4zm0 10v6h5c2 0 3-1 3-3s-1-3-3-3h-5z' fill='white'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dashboard-page">
+    <!-- Aurora Background Effect -->
+    <div class="aurora-background"></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="24" cy="24" r="22" stroke="currentColor" fill="none" stroke-width="2"/>
+                    <path d="M18 16h8c4 0 7 2 7 6s-2 5-4 5.5c3 .5 5 2.5 5 5.5s-3 7-8 7h-8V16zm4 4v6h4c2 0 3-1 3-3s-1-3-3-3h-4zm0 10v6h5c2 0 3-1 3-3s-1-3-3-3h-5z" fill="currentColor"/>
+                </svg>
+                <span class="logo-text">ROOBUX</span>
+            </a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="packages.html" class="nav-link">Packages</a></li>
+                </ul>
+                <div class="user-menu" id="user-menu">
+                    <button class="user-menu-btn" id="user-menu-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span id="user-email-nav"></span>
+                    </button>
+                    <div class="user-dropdown" id="user-dropdown">
+                        <a href="dashboard.html" class="dropdown-item">Dashboard</a>
+                        <a href="profile.html" class="dropdown-item">Profile</a>
+                        <a href="deposit.html" class="dropdown-item active">Deposit</a>
+                        <a href="withdraw.html" class="dropdown-item">Withdraw</a>
+                        <a href="referrals.html" class="dropdown-item">Referrals</a>
+                        <a href="support.html" class="dropdown-item">Support</a>
+                        <a href="#" class="dropdown-item" id="logout-btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="dashboard-section">
+        <div class="container">
+            <div class="deposit-container">
+                <div class="dashboard-header" style="text-align: center;">
+                    <h1>Make a Deposit</h1>
+                    <p class="page-subtitle">Fund your account to start earning daily returns. 0-60 minute approval.</p>
+                </div>
+
+                <!-- Progress Steps -->
+                <div class="deposit-steps">
+                    <div class="deposit-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <span>Enter Amount</span>
+                    </div>
+                    <div class="deposit-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <span>Send Bitcoin</span>
+                    </div>
+                    <div class="deposit-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <span>Confirm</span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Amount Input -->
+                <div class="deposit-form-step active" id="deposit-step-1">
+                    <div class="deposit-card">
+                        <h2>Step 1: Enter Deposit Amount</h2>
+                        <form id="deposit-amount-form">
+                            <div class="form-group">
+                                <label for="deposit-package">Select Package (Recommended)</label>
+                                <select id="deposit-package" class="form-input">
+                                    <option value="">Choose a package...</option>
+                                    <!-- Packages loaded by app.js -->
+                                </select>
+                                <small>If you select a package, your amount must be within its min/max range.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="deposit-amount">Amount (USD)</label>
+                                <input type="number" id="deposit-amount" class="form-input" placeholder="Enter amount" min="100" step="0.01" required>
+                                <small>Minimum deposit: $100 (unless package specifies higher).</small>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Continue</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Step 2: Payment Instructions -->
+                <div class="deposit-form-step" id="deposit-step-2">
+                    <div class="deposit-card">
+                        <h2>Step 2: Send Bitcoin</h2>
+                        <p>Send <strong id="deposit-amount-display">$0</strong> worth of Bitcoin to the address below:</p>
+                        
+                        <div class="crypto-address-box">
+                            <label>Bitcoin Address:</label>
+                            <div class="address-display">
+                                <code id="deposit-address-display">Loading...</code>
+                                <button class="btn-copy" id="copy-address-btn" title="Copy address">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="6" y="6" width="10" height="10" rx="1"/><path d="M4 14V4h10"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="deposit-instructions">
+                            <h3>Important Instructions:</h3>
+                            <ul>
+                                <li>Send ONLY Bitcoin (BTC) to this address</li>
+                                <li>Sending other coins may result in loss of funds</li>
+                                <li>Wait for at least 3 blockchain confirmations</li>
+                                <li>Keep your transaction hash (TxID) for the next step</li>
+                            </ul>
+                        </div>
+
+                        <button class="btn btn-primary btn-block" id="proceed-to-confirm">I've Sent the Bitcoin</button>
+                        <button class="btn btn-secondary btn-block" id="back-to-amount">Back</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Confirmation -->
+                <div class="deposit-form-step" id="deposit-step-3">
+                    <div class="deposit-card">
+                        <h2>Step 3: Confirm Your Deposit</h2>
+                        <form id="deposit-confirm-form">
+                            <div class="form-group">
+                                <label for="tx-hash">Transaction Hash (TxID)</label>
+                                <input type="text" id="tx-hash" class="form-input" placeholder="Enter your transaction hash" required>
+                                <small>Find this in your wallet after sending Bitcoin</small>
+                            </div>
+
+                            <!-- UPDATED: Replaced file upload with URL input -->
+                            <div class="form-group">
+                                <label for="deposit-proof-url">Proof URL (Required)</label>
+                                <input type="url" id="deposit-proof-url" class="form-input" placeholder="https://imgur.com/your-image-link" required>
+                                <small>Upload a screenshot of your transaction to a free site like <a href="https://imgur.com/upload" target="_blank" rel="noopener noreferrer">Imgur</a> or <a href="https://postimages.org/" target="_blank" rel="noopener noreferrer">Postimages</a> and paste the link here.</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" id="deposit-submit-btn">
+                                <span class="btn-text">Submit Deposit</span>
+                                <span class="btn-loader" style="display: none;"></span>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-block" id="back-to-payment">Back</button>
+                            
+                            <p class="form-success" id="deposit-success" style="display: none;"></p>
+                            <p class="form-error" id="deposit-error" style="display: none;"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> ROOBUX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-init.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+

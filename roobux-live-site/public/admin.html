@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - ROOBUX</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%233B82F6'/%3E%3Cpath d='M18 16h8c4 0 7 2 7 6s-2 5-4 5.5c3 .5 5 2.5 5 5.5s-3 7-8 7h-8V16zm4 4v6h4c2 0 3-1 3-3s-1-3-3-3h-4zm0 10v6h5c2 0 3-1 3-3s-1-3-3-3h-5z' fill='white'/%3E%3C/svg%3E">
+    <!-- This will use the same new styles.css for a consistent "God Mode" feel -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="admin-page">
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" id="admin-sidebar">
+            <div class="admin-sidebar-header">
+                <svg width="40" height="40" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="24" cy="24" r="22" stroke="currentColor" fill="none" stroke-width="2"/>
+                    <path d="M18 16h8c4 0 7 2 7 6s-2 5-4 5.5c3 .5 5 2.5 5 5.5s-3 7-8 7h-8V16zm4 4v6h4c2 0 3-1 3-3s-1-3-3-3h-4zm0 10v6h5c2 0 3-1 3-3s-1-3-3-3h-5z" fill="currentColor"/>
+                </svg>
+                <span>ROOBUX Admin</span>
+            </div>
+            <nav class="admin-nav">
+                <a href="#dashboard" class="admin-nav-item active" data-tab="dashboard">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5 3h10a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zm0 2v3h10V5H5zm0 5v5h5v-5H5zm7 0v5h3v-5h-3z"/></svg>
+                    Dashboard
+                </a>
+                <a href="#users" class="admin-nav-item" data-tab="users">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+                    Users
+                </a>
+                <a href="#support" class="admin-nav-item" data-tab="support">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17.608 2.98 14.083A8.841 8.841 0 012 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0H9v2h6V9z" clip-rule="evenodd" /></svg>
+                    Support Chat
+                </a>
+                <a href="#deposits" class="admin-nav-item" data-tab="deposits">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2V5h10v1h-10zM3 9a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V9zm2 2V9h10v2H5zm-2 5a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm2 2v-1h10v1H5z" clip-rule="evenodd"/></svg>
+                    Deposits
+                </a>
+                <a href="#withdrawals" class="admin-nav-item" data-tab="withdrawals">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1z"/></svg>
+                    Withdrawals
+                </a>
+                <a href="#packages" class="admin-nav-item" data-tab="packages">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2h-2zM11 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2h-2z"/></svg>
+                    Packages
+                </a>
+                <a href="#referrals" class="admin-nav-item" data-tab="referrals">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M11 3a1 1 0 10-2 0v1.088A7 7 0 004.088 11H3a1 1 0 100 2h1.088A7 7 0 0011 18.912V20a1 1 0 102 0v-1.088A7 7 0 0018.912 13H20a1 1 0 100-2h-1.088A7 7 0 0013 4.088V3zM10 6a4 4 0 100 8 4 4 0 000-8z"/></svg>
+                    Referrals
+                </a>
+                <a href="#testimonials" class="admin-nav-item" data-tab="testimonials">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"/></svg>
+                    Testimonials
+                </a>
+                 <a href="#messages" class="admin-nav-item" data-tab="messages">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884zM18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" clip-rule="evenodd"/></svg>
+                    Contact Form
+                </a>
+                <a href="#content" class="admin-nav-item" data-tab="content">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 0v12h8V4H6z" clip-rule="evenodd"/></svg>
+                    Site Content
+                </a>
+                <a href="#settings" class="admin-nav-item" data-tab="settings">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.566.379-1.566 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.566 2.6 1.566 2.978 0a1.532 1.532 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.532 1.532 0 01-.947-2.287c1.566-.379 1.566-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106A1.532 1.532 0 0111.49 3.17zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
+                    Settings
+                </a>
+            </nav>
+            <div class="admin-sidebar-footer">
+                <a href="index.html" class="btn btn-secondary btn-small btn-block">Exit Admin</a>
+                <button class="btn btn-danger btn-small btn-block" id="admin-logout">Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <button class="admin-mobile-toggle" id="admin-mobile-toggle">☰</button>
+                <h1 id="admin-page-title">Dashboard</h1>
+                <div class="admin-user-info">
+                    <span id="admin-user-email">admin@roobux.com</span>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- Dashboard Tab -->
+                <div class="admin-tab active" id="tab-dashboard">
+                    <div class="admin-stats-grid">
+                        <div class="admin-stat-card">
+                            <h3 id="stat-total-users">0</h3>
+                            <p>Total Users</p>
+                        </div>
+                        <div class="admin-stat-card">
+                            <h3 id="stat-pending-deposits">0</h3>
+                            <p>Pending Deposits</p>
+                        </div>
+                        <div class="admin-stat-card">
+                            <h3 id="stat-pending-withdrawals">0</h3>
+                            <p>Pending Withdrawals</p>
+                        </div>
+                        <div class="admin-stat-card">
+                            <h3 id="stat-total-volume">$0</h3>
+                            <p>Total Volume</p>
+                        </div>
+                    </div>
+                    <div class="admin-actions">
+                        <button class="btn btn-primary" id="init-default-data">Initialize Default Data</button>
+                        <button class="btn btn-secondary" id="export-users-csv">Export Users CSV</button>
+                    </div>
+                    
+                    <!-- NEW: Maintenance Mode -->
+                    <div class="card" style="margin-top: var(--space-5);">
+                        <h2>Site Status</h2>
+                        <p>Put your site into "Maintenance Mode". All users (except admins) will be redirected to `maintenance.html`.</p>
+                        <div class="form-group" style="margin-top: var(--space-4);">
+                            <label for="maintenance-mode-toggle" class="form-switch">
+                                <input type="checkbox" id="maintenance-mode-toggle">
+                                <span class="slider round"></span>
+                                <span class="label-text">Site is LIVE</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Tab -->
+                <div class="admin-tab" id="tab-users">
+                    <div class="admin-table-header">
+                        <h2>Manage Users</h2>
+                        <input type="text" class="form-input" id="search-users" placeholder="Search by email..." style="max-width: 300px;">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>User Email</th>
+                                    <th>Balance</th>
+                                    <th>Joined</th>
+                                    <th>Last Login</th>
+                                    <th>Last IP</th>
+                                    <th>Country</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Support Chat Tab -->
+                <div class="admin-tab" id="tab-support">
+                    <h2>Live Support Messenger</h2>
+                    <div class="support-chat-layout">
+                        <!-- Chat List -->
+                        <div class="chat-list-container card">
+                            <div class="chat-list-header">
+                                <h3>User Conversations</h3>
+                                <input type="text" id="chat-search" class="form-input" placeholder="Search for user...">
+                            </div>
+                            <ul id="chat-list" class="chat-list">
+                                <!-- JS will populate this -->
+                                <li class="empty-state">Loading chats...</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Chat Window -->
+                        <div class="chat-window card">
+                            <div id="chat-window-placeholder" class="empty-state">
+                                <svg width="64" height="64" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17.608 2.98 14.083A8.841 8.841 0 012 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0H9v2h6V9z" clip-rule="evenodd" /></svg>
+                                <p>Select a conversation to start chatting.</p>
+                            </div>
+                            
+                            <div id="chat-window-active" class="hidden">
+                                <div class="chat-window-header">
+                                    <h3 id="chat-active-user"></h3>
+                                    <button class="btn btn-danger btn-small" id="chat-close-case-btn">Close Case</button>
+                                </div>
+                                <div class="chat-messages" id="chat-messages-container">
+                                    <!-- Messages will be loaded here -->
+                                </div>
+                                <form class="chat-reply-form" id="chat-reply-form">
+                                    <input type="text" id="chat-reply-input" class="form-input" placeholder="Type your reply..." required>
+                                    <button type="submit" class="btn btn-primary">Send</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deposits Tab -->
+                <div class="admin-tab" id="tab-deposits">
+                    <h2>Manage Deposits</h2>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Amount</th>
+                                    <th>TX Hash</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Proof</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="deposits-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Withdrawals Tab -->
+                <div class="admin-tab" id="tab-withdrawals">
+                    <h2>Manage Withdrawals</h2>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Amount</th>
+                                    <th>Address</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="withdrawals-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Packages Tab -->
+                <div class="admin-tab" id="tab-packages">
+                    <div class="admin-table-header">
+                        <h2>Manage Packages</h2>
+                        <button class="btn btn-primary" id="add-package-btn">Add Package</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Min-Max</th>
+                                    <th>Daily %</th>
+                                    <th>Duration</th>
+                                    <th>Visible</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="packages-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Referrals Tab -->
+                <div class="admin-tab" id="tab-referrals">
+                    <h2>Referral System Settings</h2>
+                    <div class="settings-card">
+                        <form id="referral-settings-form">
+                            <h3>Bonuses</h3>
+                            <p>Control what referrers and new users receive.</p>
+                            <div class="form-group">
+                                <label for="setting-referrer-percent">Referrer Bonus (% of deposit)</label>
+                                <input type="number" step="0.1" class="form-input" id="setting-referrer-percent" placeholder="e.g., 5">
+                                <small>Percentage of the new user's *first* deposit to give to the referrer. Set to 0 to disable.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="setting-new-user-bonus">New User Bonus ($)</label>
+                                <input type="number" step="1" class="form-input" id="setting-new-user-bonus" placeholder="e.g., 10">
+                                <small>Fixed dollar amount to give to a new user who signs up with a referral code. Set to 0 to disable.</small>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Referral Settings</button>
+                        </form>
+                    </div>
+                    
+                    <div class="admin-table-header" style="margin-top: var(--space-5);">
+                        <h2>Referral History</h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Referrer Email</th>
+                                    <th>New User Email</th>
+                                    <th>Date</th>
+                                    <th>Bonus Paid</th>
+                                </tr>
+                            </thead>
+                            <tbody id="referrals-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Testimonials Tab -->
+                <div class="admin-tab" id="tab-testimonials">
+                    <div class="admin-table-header">
+                        <h2>Manage Testimonials</h2>
+                        <button class="btn btn-primary" id="add-testimonial-btn">Add Testimonial</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Country</th>
+                                    <th>Rating</th>
+                                    <th>Visible</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="testimonials-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Messages Tab -->
+                <div class="admin-tab" id="tab-messages">
+                    <div class="admin-table-header">
+                        <h2>Contact Form Messages</h2>
+                        <button class="btn btn-danger" id="delete-read-messages-btn">Delete All Read</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>From</th>
+                                    <th>Subject</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="messages-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Site Content Tab -->
+                <div class="admin-tab" id="tab-content">
+                    <h2>"God Mode" Site Content Editor</h2>
+                    <form id="site-content-form">
+                        <div class="settings-card">
+                            <h3>Homepage Content</h3>
+                            <div class="form-group">
+                                <label for="content-hero-title">Hero Title</label>
+                                <textarea class="form-input" id="content-hero-title" rows="2"></textarea>
+                                <small>The main text on the homepage. (Supports text only)</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="content-hero-subtitle">Hero Subtitle</label>
+                                <textarea class="form-input" id="content-hero-subtitle" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>About Page Content</h3>
+                            <div class="form-group">
+                                <label for="content-about-story">"Our Story" Text</label>
+                                <textarea class="form-input" id="content-about-story" rows="8"></textarea>
+                                <small>The main text on the "About Us" page. (Supports text only, new lines will be preserved)</small>
+                            </div>
+                        </div>
+                        
+                        <!-- More sections will be added here as we build -->
+
+                        <button type="submit" class="btn btn-primary btn-large" style="margin-top: var(--space-4);">Save All Content Changes</button>
+                    </form>
+                </div>
+
+                <!-- Settings Tab -->
+                <div class="admin-tab" id="tab-settings">
+                    <h2>Site Settings</h2>
+                    <div class="settings-sections">
+                        <div class="settings-card">
+                            <h3>Main Settings</h3>
+                            <form id="main-settings-form">
+                                <div class="form-group">
+                                    <label for="setting-site-name">Site Name</label>
+                                    <input type="text" class="form-input" id="setting-site-name" placeholder="e.g., ROOBUX">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setting-deposit-address">Deposit Address (BTC)</label>
+                                    <input type="text" class="form-input" id="setting-deposit-address" placeholder="Your BTC Wallet">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setting-contact-email">Contact Email</label>
+                                    <input type="email" class="form-input" id="setting-contact-email" placeholder="e.g., support@roobux.site">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setting-contact-phone">Contact Phone</label>
+                                    <input type="text" class="form-input" id="setting-contact-phone" placeholder="e.g., +1 (555) 123-4567">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Main Settings</button>
+                            </form>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Theme Settings</h3>
+                            <form id="theme-settings-form">
+                                <div class="form-group">
+                                    <label>Theme Mode</label>
+                                    <select class="form-input" id="setting-theme-mode" disabled>
+                                        <option value="dark">Dark Mode (Default)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="setting-primary-color">Primary Color (Accent)</label>
+                                    <input type="color" class="form-input" id="setting-primary-color" value="#007BFF">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setting-secondary-color">Secondary Color (Gradient)</label>
+                                    <input type="color" class="form-input" id="setting-secondary-color" value="#8B5CF6">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Theme</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Edit User Balance Modal -->
+    <div class="modal-overlay" id="edit-balance-modal">
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <h2>Edit User Balance</h2>
+            <form id="edit-balance-form">
+                <input type="hidden" id="edit-balance-uid">
+                <div class="form-group">
+                    <label>User Email</label>
+                    <input type="text" class="form-input" id="edit-balance-email" readonly>
+                </div>
+                <div class="form-group">
+                    <label>New Balance ($)</label>
+                    <input type="number" class="form-input" id="edit-balance-amount" step="0.01" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Update Balance</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Package Modal -->
+    <div class="modal-overlay" id="package-modal">
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <h2 id="package-modal-title">Add Package</h2>
+            <form id="package-form">
+                <input type="hidden" id="package-id">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-input" id="package-title" required>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-input" id="package-description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Min Deposit ($)</label>
+                    <input type="number" class="form-input" id="package-min" required>
+                </div>
+                <div class="form-group">
+                    <label>Max Deposit ($)</label>
+                    <input type="number" class="form-input" id="package-max" required>
+                </div>
+                <div class="form-group">
+                    <label>Daily Return (%)</label>
+                    <input type="number" class="form-input" id="package-daily-percent" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label>Duration (days)</label>
+                    <input type="number" class="form-input" id="package-duration" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-switch inline">
+                        <input type="checkbox" id="package-visible">
+                        <span class="slider round"></span>
+                        <span class="label-text">Visible to users</span>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Save Package</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Testimonial Modal -->
+    <div class="modal-overlay" id="testimonial-modal">
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <h2 id="testimonial-modal-title">Add Testimonial</h2>
+            <form id="testimonial-form">
+                <input type="hidden" id="testimonial-id">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-input" id="testimonial-name" required>
+                </div>
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" class="form-input" id="testimonial-country" required>
+                </div>
+                <div class="form-group">
+                    <label>Text</label>
+                    <textarea class="form-input" id="testimonial-text" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Rating (1-5)</label>
+                    <input type="number" class="form-input" id="testimonial-rating" min="1" max="5" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-switch inline">
+                        <input type="checkbox" id="testimonial-visible">
+                        <span class="slider round"></span>
+                        <span class="label-text">Visible to users</span>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Save Testimonial</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- View Message Modal -->
+    <div class="modal-overlay" id="message-modal">
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <h2 id="message-subject">Message Subject</h2>
+            <div class="message-meta">
+                <p><strong>From:</strong> <span id="message-from"></span></p>
+                <p><strong>Date:</strong> <span id="message-date"></span></p>
+            </div>
+            <div class="message-body" id="message-body">
+                ...
+            </div>
+            <button class="btn btn-danger" id="message-delete-btn">Delete Message</button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-init.js"></script>
+    
+    <!-- IMPORTANT: admin.js is loaded LAST -->
+    <script src="js/admin.js"></script>
+</body>
+</html>
+

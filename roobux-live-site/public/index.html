@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>ROOBUX - Professional Crypto Mining Investment Platform | Earn Daily Returns</title>
+    <meta name="description" content="Invest in professional crypto mining with ROOBUX. Earn up to 15% daily returns. Secure, transparent, and trusted by 30,000+ investors worldwide.">
+    <meta name="keywords" content="crypto mining, bitcoin investment, cryptocurrency, passive income, mining pool, blockchain investment">
+    <meta name="author" content="ROOBUX">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://roobux.site/">
+    <meta property="og:title" content="ROOBUX - Professional Crypto Mining Investment Platform">
+    <meta property="og:description" content="Earn daily returns through professional crypto mining. Join 30,000+ investors worldwide.">
+    
+    <!-- Favicon (inline SVG as data URI) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%233B82F6'/%3E%3Cpath d='M18 16h8c4 0 7 2 7 6s-2 5-4 5.5c3 .5 5 2.5 5 5.5s-3 7-8 7h-8V16zm4 4v6h4c2 0 3-1 3-3s-1-3-3-3h-4zm0 10v6h5c2 0 3-1 3-3s-1-3-3-3h-5z' fill='white'/%3E%3C/svg%3E">
+    
+    <!-- Master Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ROOBUX",
+      "description": "Professional Crypto Mining Investment Platform",
+      "url": "https://roobux.site",
+      "logo": "https://roobux.site/icon.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "support@roobux.site"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Aurora Background Effect -->
+    <div class="aurora-background"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-label="ROOBUX Logo">
+                    <circle cx="24" cy="24" r="22" stroke="currentColor" fill="none" stroke-width="2"/>
+                    <path d="M18 16h8c4 0 7 2 7 6s-2 5-4 5.5c3 .5 5 2.5 5 5.5s-3 7-8 7h-8V16zm4 4v6h4c2 0 3-1 3-3s-1-3-3-3h-4zm0 10v6h5c2 0 3-1 3-3s-1-3-3-3h-5z" fill="currentColor"/>
+                </svg>
+                <span class="logo-text">ROOBUX</span>
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Navigation Menu -->
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+                    <li><a href="packages.html" class="nav-link">Packages</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <!-- User Menu (Hidden initially, shown when logged in) -->
+                <div class="user-menu" id="user-menu" style="display: none;">
+                    <button class="user-menu-btn" id="user-menu-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span id="user-email-nav"></span>
+                    </button>
+                    <div class="user-dropdown" id="user-dropdown">
+                        <a href="dashboard.html" class="dropdown-item">Dashboard</a>
+                        <a href="profile.html" class="dropdown-item">Profile</a>
+                        <a href="deposit.html" class="dropdown-item">Deposit</a>
+                        <a href="withdraw.html" class="dropdown-item">Withdraw</a>
+                        <a href="referrals.html" class="dropdown-item">Referrals</a>
+                        <a href="support.html" class="dropdown-item">Support</a>
+                        <a href="#" class="dropdown-item" id="logout-btn">Logout</a>
+                    </div>
+                </div>
+
+                <!-- Login Button (Shown when not logged in) -->
+                <button class="btn btn-primary" id="login-trigger" style="display: inline-flex;">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <!-- "God Mode" Editable Title -->
+                <h1 class="hero-title" id="content-hero-title">
+                    Invest in the Future of Cryptocurrency Mining
+                </h1>
+                <!-- "God Mode" Editable Subtitle -->
+                <p class="hero-subtitle" id="content-hero-subtitle">
+                    Join 30,000+ investors earning daily returns through our professional mining infrastructure. Secure, transparent, and trusted worldwide.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary btn-large" id="hero-get-started">Get Started Today</button>
+                    <a href="how-it-works.html" class="btn btn-secondary btn-large">Learn More</a>
+                </div>
+                
+                <!-- Live Bitcoin Price Ticker -->
+                <div class="btc-ticker">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="15" stroke="#F7931A" stroke-width="2"/>
+                        <path d="M18 10h2v-2h-2v2zm0 12h2v-2h-2v2zm-6-12h2v-2h-2v2zm0 12h2v-2h-2v2zm2-10h6c2 0 3 1 3 3s-1 3-3 3h-6v-6zm0 8h6c2 0 3 1 3 3s-1 3-3 3h-6v-6z" fill="#F7931A"/>
+                    </svg>
+                    <div class="ticker-info">
+                        <span class="ticker-label">Bitcoin Price:</span>
+                        <span class="ticker-price" id="btc-price">Loading...</span>
+                        <span class="ticker-change" id="btc-change"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <!-- NEW Inline SVG "Sketch" Placeholder -->
+                <svg width="100%" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius: var(--radius-lg); opacity: 0.8; box-shadow: 0 0 30px var(--primary-glow);">
+                    <rect width="800" height="600" fill="#111111"/>
+                    <rect x="50" y="50" width="700" height="500" stroke="#2a2a2a" stroke-width="2"/>
+                    <rect x="100" y="100" width="250" height="150" fill="#1a1a1a"/>
+                    <rect x="100" y="280" width="250" height="150" fill="#1a1a1a"/>
+                    <rect x="100" y="460" width="250" height="40" fill="#1a1a1a"/>
+                    <rect x="400" y="100" width="300" height="400" fill="#1a1a1a"/>
+                    <line x1="420" y1="130" x2="680" y2="130" stroke="#2a2a2a" stroke-width="10"/>
+                    <line x1="420" y1="160" x2="680" y2="160" stroke="#2a2a2a" stroke-width="10"/>
+                    <line x1="420" y1="190" x2="600" y2="190" stroke="#2a2a2a" stroke-width="10"/>
+                    <line x1="120" y1="130" x2="330" y2="130" stroke="#2a2a2a" stroke-width="10"/>
+                    <line x1="120" y1="160" x2="330" y2="160" stroke="#2a2a2a" stroke-width="10"/>
+                    <line x1="120" y1="310" x2="330" y2="310" stroke="#2a2a2a" stroke-width="10"/>
+                    <line x1="120" y1="340" x2="330" y2="340" stroke="#2a2a2a" stroke-width="10"/>
+                    <text x="400" y="560" font-family="Inter, sans-serif" font-size="20" fill="#888888" text-anchor="middle">ROOBUX DATA CENTER</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section (From your request) -->
+    <section class="section stats-section">
+        <div class="container">
+            <div class="stats-grid" id="stats-counter-grid">
+                <!-- This content is now filled by app.js -->
+                <div class="stat-card"></div>
+                <div class="stat-card"></div>
+                <div class="stat-card"></div>
+                <div class="stat-card"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Investment Packages Section -->
+    <section class="section packages-section" id="packages-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Investment Packages</h2>
+                <p class="section-subtitle">Choose the plan that fits your investment goals. 0-60 minute approval.</p>
+            </div>
+
+            <!-- Packages will be loaded dynamically from Firestore -->
+            <div class="packages-grid" id="packages-grid">
+                <!-- Loading skeleton -->
+                <div class="package-skeleton"></div>
+                <div class="package-skeleton"></div>
+                <div class="package-skeleton"></div>
+            </div>
+
+            <div class="section-footer">
+                <a href="packages.html" class="btn btn-secondary">View All Packages</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator Section -->
+    <section class="section roi-section">
+        <div class="container">
+            <div class="roi-calculator">
+                <div class="roi-header">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8" y="20" width="48" height="36" rx="4" stroke="currentColor" stroke-width="2"/>
+                        <path d="M16 28h32M16 36h24M16 44h16" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="48" cy="12" r="10" fill="#10B981"/>
+                        <path d="M44 12l3 3 5-6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <h2>Calculate Your Returns</h2>
+                    <p>See how much you can earn with ROOBUX</p>
+                </div>
+
+                <div class="roi-calculator-form">
+                    <div class="form-group">
+                        <label for="calc-amount">Investment Amount ($)</label>
+                        <input type="number" id="calc-amount" class="form-input" placeholder="Enter amount" min="100" value="1000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="calc-package">Select Package</label>
+                        <select id="calc-package" class="form-input">
+                            <option value="">Loading packages...</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" id="calc-btn">Calculate Returns</button>
+
+                    <div class="roi-results" id="roi-results" style="display: none;">
+                        <div class="roi-result-item">
+                            <span class="roi-label">Daily Return:</span>
+                            <span class="roi-value" id="roi-daily">$0.00</span>
+                        </div>
+                        <div class="roi-result-item">
+                            <span class="roi-label">Total Return (Profit):</span>
+                            <span class="roi-value roi-profit" id="roi-profit">$0.00</span>
+                        </div>
+                        <div class="roi-result-item">
+                            <span class="roi-label">Duration:</span>
+                            <span class="roi-value" id="roi-duration">0 days</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose ROOBUX</h2>
+                <p class="section-subtitle">Built for investors, optimized for returns</p>
+            </div>
+
+            <div class="why-choose-grid">
+                <div class="why-choose-card">
+                    <div class="why-choose-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+                    </div>
+                    <h3>Secure Platform</h3>
+                    <p>Bank-level security with encrypted transactions and secure wallet storage.</p>
+                </div>
+
+                <div class="why-choose-card">
+                    <div class="why-choose-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <h3>Daily Returns</h3>
+                    <p>Earn consistent daily returns directly to your account balance.</p>
+                </div>
+
+                <div class="why-choose-card">
+                    <div class="why-choose-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    </div>
+                    <h3>Professional Mining</h3>
+                    <p>Industrial-scale mining operations with optimized hardware.</p>
+                </div>
+
+                <div class="why-choose-card">
+                    <div class="why-choose-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <h3>24/7 Live Support</h3>
+                    <p>Our team is available 24/7 via our new Live Support Messenger to help with any questions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Investors Say</h2>
+                <p class="section-subtitle">Join 30,000+ satisfied investors worldwide</p>
+            </div>
+
+            <!-- Testimonials will be loaded dynamically from Firestore -->
+            <div class="testimonials-grid" id="testimonials-grid">
+                <!-- Loading skeleton -->
+                <div class="testimonial-skeleton"></div>
+                <div class="testimonial-skeleton"></div>
+                <div class="testimonial-skeleton"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Start Earning?</h2>
+                <p class="cta-subtitle">Join ROOBUX today and take control of your financial future</p>
+                <button class="btn btn-primary btn-large" id="cta-signup">Create Your Account</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="22" stroke="currentColor" fill="none" stroke-width="2"/>
+                            <path d="M18 16h8c4 0 7 2 7 6s-2 5-4 5.5c3 .5 5 2.5 5 5.5s-3 7-8 7h-8V16zm4 4v6h4c2 0 3-1 3-3s-1-3-3-3h-4zm0 10v6h5c2 0 3-1 3-3s-1-3-3-3h-5z" fill="currentColor"/>
+                        </svg>
+                        <span>ROOBUX</span>
+                    </div>
+                    <p class="footer-description">Professional cryptocurrency mining investment platform. Secure, transparent, and trusted worldwide.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">User</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" id="login-trigger-footer">Login / Register</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="support.html">Support Chat</a></li>
+                        <li><a href="referrals.html">Referrals</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="terms.html#privacy">Privacy Policy</a></li>
+                        <li><a href="terms.html#disclaimer">Disclaimer</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-contact">
+                        <!-- Filled by app.js -->
+                        <li id="footer-email">Email: ...</li>
+                        <li id="footer-phone">Phone: ...</li>
+                    </ul>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="#" aria-label="Twitter"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> ROOBUX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login/Signup Modal -->
+    <div class="modal-overlay" id="auth-modal-overlay">
+        <div class="modal auth-modal">
+            <button class="modal-close" id="auth-modal-close" aria-label="Close modal">&times;</button>
+            
+            <div class="auth-container">
+                <div class="auth-card" id="auth-card">
+                    <!-- Login Form (Front) -->
+                    <div class="auth-face auth-front">
+                        <h2 class="auth-title">Welcome Back</h2>
+                        <p class="auth-subtitle">Login to your account</p>
+                        
+                        <form id="login-form" class="auth-form">
+                            <div class="form-group">
+                                <label for="login-email">Email Address</label>
+                                <input type="email" id="login-email" class="form-input" placeholder="your@email.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="login-password">Password</label>
+                                <input type="password" id="login-password" class="form-input" placeholder="••••••••" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block" id="login-submit-btn">
+                                <span class="btn-text">Login</span>
+                                <span class="btn-loader" style="display: none;"></span>
+                            </button>
+                            
+                            <p class="auth-forgot-password"><button type="button" class="auth-switch-btn" id="show-forgot-password">Forgot Password?</button></p>
+                            <p class="auth-error" id="login-error" style="display: none;"></p>
+                        </form>
+                        
+                        <p class="auth-switch">
+                            Don't have an account? 
+                            <button class="auth-switch-btn" id="show-signup">Sign Up</button>
+                        </p>
+                    </div>
+
+                    <!-- Signup Form (Back) -->
+                    <div class="auth-face auth-back">
+                        <h2 class="auth-title">Create Account</h2>
+                        <p class="auth-subtitle">Join 30,000+ investors</p>
+                        
+                        <form id="signup-form" class="auth-form">
+                            <div class="form-group">
+                                <label for="signup-email">Email Address</label>
+                                <input type="email" id="signup-email" class="form-input" placeholder="your@email.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="signup-password">Password</label>
+                                <input type="password" id="signup-password" class="form-input" placeholder="••••••••" minlength="6" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="signup-password-confirm">Confirm Password</label>
+                                <input type="password" id="signup-password-confirm" class="form-input" placeholder="••••••••" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block" id="signup-submit-btn">
+                                <span class="btn-text">Create Account</span>
+                                <span class="btn-loader" style="display: none;"></span>
+                            </button>
+                            
+                            <p class="auth-error" id="signup-error" style="display: none;"></p>
+                        </form>
+                        
+                        <p class="auth-switch">
+                            Already have an account? 
+                            <button class="auth-switch-btn" id="show-login">Login</button>
+                        </p>
+                    </div>
+                    
+                    <!-- Reset Password Form (Hidden) -->
+                    <div class="auth-face auth-reset">
+                        <h2 class="auth-title">Reset Password</h2>
+                        <p class="auth-subtitle">Enter your email to get a reset link</p>
+                        
+                        <form id="reset-form" class="auth-form">
+                            <div class="form-group">
+                                <label for="reset-email">Email Address</label>
+                                <input type="email" id="reset-email" class="form-input" placeholder="your@email.com" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block" id="reset-submit-btn">
+                                <span class="btn-text">Send Reset Link</span>
+                                <span class="btn-loader" style="display: none;"></span>
+                            </button>
+                            
+                            <p class="auth-success" id="reset-success" style="display: none;"></p>
+                            <p class="auth-error" id="reset-error" style="display: none;"></p>
+                        </form>
+                        
+                        <p class="auth-switch">
+                            Remembered it? 
+                            <button class="auth-switch-btn" id="show-login-from-reset">Back to Login</button>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- Application Scripts -->
+    <script src="js/firebase-init.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        // Add listener for footer login button
+        const footerLogin = document.getElementById('login-trigger-footer');
+        if (footerLogin) {
+            footerLogin.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('login-trigger').click();
+            });
+        }
+    </script>
+</body>
+</html>
+

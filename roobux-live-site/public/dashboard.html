@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ROOBUX</title>
+    <meta name="robots" content="noindex, nofollow"> <!-- Prevents indexing -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%233B82F6'/%3E%3Cpath d='M18 16h8c4 0 7 2 7 6s-2 5-4 5.5c3 .5 5 2.5 5 5.5s-3 7-8 7h-8V16zm4 4v6h4c2 0 3-1 3-3s-1-3-3-3h-4zm0 10v6h5c2 0 3-1 3-3s-1-3-3-3h-5z' fill='white'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dashboard-page">
+    <!-- Aurora Background Effect -->
+    <div class="aurora-background"></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="24" cy="24" r="22" stroke="currentColor" fill="none" stroke-width="2"/>
+                    <path d="M18 16h8c4 0 7 2 7 6s-2 5-4 5.5c3 .5 5 2.5 5 5.5s-3 7-8 7h-8V16zm4 4v6h4c2 0 3-1 3-3s-1-3-3-3h-4zm0 10v6h5c2 0 3-1 3-3s-1-3-3-3h-5z" fill="currentColor"/>
+                </svg>
+                <span class="logo-text">ROOBUX</span>
+            </a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="packages.html" class="nav-link">Packages</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="user-menu" id="user-menu">
+                    <button class="user-menu-btn" id="user-menu-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span id="user-email-nav"></span>
+                    </button>
+                    <div class="user-dropdown" id="user-dropdown">
+                        <a href="dashboard.html" class="dropdown-item active">Dashboard</a>
+                        <a href="profile.html" class="dropdown-item">Profile</a>
+                        <a href="deposit.html" class="dropdown-item">Deposit</a>
+                        <a href="withdraw.html" class="dropdown-item">Withdraw</a>
+                        <a href="referrals.html" class="dropdown-item">Referrals</a>
+                        <a href="support.html" class="dropdown-item">Support</a>
+                        <a href="#" class="dropdown-item" id="logout-btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="dashboard-section">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Welcome Back, <span id="user-name-display">User</span></h1>
+                <p class="page-subtitle">Here's your investment overview</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="dashboard-stats">
+                <div class="stat-card-dash">
+                    <div class="stat-card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14a2 2 0 0 1 2 2v4zM3 5v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4H3z"/></svg>
+                    </div>
+                    <div class="stat-card-content">
+                        <p class="stat-card-label">Account Balance</p>
+                        <h3 class="stat-card-value" id="dashboard-balance">$0.00</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card-dash">
+                    <div class="stat-card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div class="stat-card-content">
+                        <p class="stat-card-label">Total Invested</p>
+                        <h3 class="stat-card-value" id="dashboard-invested">$0.00</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card-dash">
+                    <div class="stat-card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <div class="stat-card-content">
+                        <p class="stat-card-label">Total Earnings</p>
+                        <h3 class="stat-card-value" id="dashboard-earnings">$0.00</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card-dash">
+                    <div class="stat-card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                    </div>
+                    <div class="stat-card-content">
+                        <p class="stat-card-label">Total Withdrawn</p>
+                        <h3 class="stat-card-value" id="dashboard-withdrawn">$0.00</h3>
+                    </div>
+                </div>
+                
+                <!-- NEW: Live Crypto Tickers -->
+                <div class="stat-card-dash btc-price-card">
+                    <div class="stat-card-icon">
+                        <svg width="48" height="48" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+                            <path d="M18 10h2v-2h-2v2zm0 12h2v-2h-2v2zm-6-12h2v-2h-2v2zm0 12h2v-2h-2v2zm2-10h6c2 0 3 1 3 3s-1 3-3 3h-6v-6zm0 8h6c2 0 3 1 3 3s-1 3-3 3h-6v-6z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="stat-card-content">
+                        <p class="stat-card-label">Bitcoin Price</p>
+                        <h3 class="stat-card-value" id="dash-btc-price">Loading...</h3>
+                    </div>
+                </div>
+                
+                <div class="stat-card-dash eth-price-card">
+                    <div class="stat-card-icon">
+                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 4L12 24l12 8 12-8L24 4zM12 28l12 16 12-16-12 8-12-8z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="stat-card-content">
+                        <p class="stat-card-label">Ethereum Price</p>
+                        <h3 class="stat-card-value" id="dash-eth-price">Loading...</h3>
+                    </div>
+                </div>
+                
+                <div class="stat-card-dash ltc-price-card">
+                    <div class="stat-card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M20 14l-4 18h16l4-18H20zm-2 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="stat-card-content">
+                        <p class="stat-card-label">Litecoin Price</p>
+                        <h3 class="stat-card-value" id="dash-ltc-price">Loading...</h3>
+                    </div>
+                </div>
+                <!-- END: Live Crypto Tickers -->
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <a href="deposit.html" class="quick-action-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    <span>Make Deposit</span>
+                </a>
+                <a href="withdraw.html" class="quick-action-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    <span>Withdraw Funds</span>
+                </a>
+                <a href="referrals.html" class="quick-action-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span>My Referrals</span>
+                </a>
+                <a href="support.html" class="quick-action-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    <span>Support Chat</span>
+                </a>
+            </div>
+
+            <!-- Recent Deposits -->
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h2>Recent Deposits</h2>
+                    <a href="deposit.html" class="btn btn-secondary btn-small">New Deposit</a>
+                </div>
+                <div class="dashboard-card-body">
+                    <div class="table-responsive">
+                        <table class="dashboard-table" id="deposits-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Tx Hash</th>
+                                </tr>
+                            </thead>
+                            <tbody id="deposits-tbody">
+                                <tr>
+                                    <td colspan="4" class="empty-state">No deposits yet</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Withdrawals -->
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h2>Recent Withdrawals</h2>
+                    <a href="withdraw.html" class="btn btn-secondary btn-small">Request Withdrawal</a>
+                </div>
+                <div class="dashboard-card-body">
+                    <div class="table-responsive">
+                        <table class="dashboard-table" id="withdrawals-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Address</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="withdrawals-tbody">
+                                <tr>
+                                    <td colspan="4" class="empty-state">No withdrawals yet</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> ROOBUX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-init.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+
